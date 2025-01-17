@@ -50,7 +50,11 @@ const WeatherCard = () => {
                         <Card.Title className="text-center mb-4">React Weather App <span><FaCloudSun /></span></Card.Title>
                         <div className="d-flex align-items-center" style={{ gap: "5px" }}>
                             <Form.Control ref={inputRef} type="text" placeholder="Enter City" style={{width:"100%"}}/>
-                            <Button style={{backgroundColor:"#67B26F", color:"black"}} onClick={()=>search(inputRef.current.value)}>Get</Button>
+                            <Button style={{backgroundColor:"#67B26F", color:"black"}} 
+                                onClick={()=>{
+                                search(inputRef.current.value);
+                                inputRef.current.value = ""; // Clear the input field
+                                }}>Get</Button>
                         </div>
                         {weatherData?<>
                             <Card.Text className='mt-3'>
